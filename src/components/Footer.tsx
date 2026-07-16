@@ -1,38 +1,34 @@
 "use client";
 
 import Link from "next/link";
+import { handleHashClick } from "@/utils/navigation";
+import { NAV_LINKS } from "@/lib/constants";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[#F1E3D8] py-16 relative overflow-hidden bg-transparent">
-      {/* Footer background layer placed behind the thread (z-0) */}
-      <div className="absolute inset-0 bg-[#F7EFE9] z-0 pointer-events-none" />
-
-      {/* Anchor for Yarn Thread curve to flow into the top-center of the footer */}
-      <div 
-        data-yarn-anchor 
-        className="absolute top-0 left-[45%] w-5 h-5 pointer-events-none opacity-0" 
-      />
+    <footer id="contact" className="border-t border-border-custom py-24 relative overflow-hidden bg-transparent">
+      
+      <div className="absolute inset-0 bg-background z-0 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-20">
         
-        {/* Footer Top Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 mb-12">
+        
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 mb-16">
           
-          {/* Logo & Description column */}
-          <div className="col-span-1 md:col-span-6 space-y-5">
-            <span className="text-xl font-serif font-bold text-[#8C3E30] tracking-tight block">
+          
+          <div className="col-span-1 md:col-span-6 space-y-6">
+            <span className="text-2xl font-serif font-bold text-accent block">
               Len Ấm
             </span>
-            <p className="text-sm text-[#7A5C4A] max-w-sm leading-relaxed font-light">
-              Nơi bắt đầu những điều nhỏ bé ấm áp từ những sợi len mềm mại. Chúng mình đồng hành cùng bạn trong từng mũi đan.
+            <p className="text-xs text-ink-muted max-w-sm leading-relaxed font-normal">
+              Nơi bắt đầu những điều nhỏ bé ấm áp từ những sợi len mềm mại. Chúng mình đồng hành cùng bạn trong từng mũi đan và từng dự án tỉ mẩn.
             </p>
             
-            {/* Social Icons (using standard custom SVGs matching the design) */}
+            
             <div className="flex space-x-3.5 pt-2">
               <a
                 href="#facebook"
-                className="w-9 h-9 rounded-full bg-white border border-[#F1E3D8] flex items-center justify-center text-[#7A5C4A] hover:text-[#8C3E30] hover:border-[#8C3E30]/20 shadow-sm transition-all duration-300 active:scale-95"
+                className="w-9 h-9 rounded-full bg-surface border border-border-custom flex items-center justify-center text-ink-muted hover:text-accent hover:border-accent/30 shadow-warm-sm transition-all duration-300 active:scale-95"
                 aria-label="Facebook"
               >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -41,17 +37,17 @@ export default function Footer() {
               </a>
               <a
                 href="#instagram"
-                className="w-9 h-9 rounded-full bg-white border border-[#F1E3D8] flex items-center justify-center text-[#7A5C4A] hover:text-[#8C3E30] hover:border-[#8C3E30]/20 shadow-sm transition-all duration-300 active:scale-95"
+                className="w-9 h-9 rounded-full bg-surface border border-border-custom flex items-center justify-center text-ink-muted hover:text-accent hover:border-accent/30 shadow-warm-sm transition-all duration-300 active:scale-95"
                 aria-label="Instagram"
               >
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
                   <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zM17.5 6.5h.01" />
                 </svg>
               </a>
               <a
                 href="#pinterest"
-                className="w-9 h-9 rounded-full bg-white border border-[#F1E3D8] flex items-center justify-center text-[#7A5C4A] hover:text-[#8C3E30] hover:border-[#8C3E30]/20 shadow-sm transition-all duration-300 active:scale-95"
+                className="w-9 h-9 rounded-full bg-surface border border-border-custom flex items-center justify-center text-ink-muted hover:text-accent hover:border-accent/30 shadow-warm-sm transition-all duration-300 active:scale-95"
                 aria-label="Pinterest"
               >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -61,49 +57,50 @@ export default function Footer() {
             </div>
           </div>
           
-          {/* Column 2 - Links */}
+          
           <div className="col-span-1 md:col-span-3 space-y-4">
-            <h4 className="text-xs font-bold text-[#8C3E30] uppercase tracking-wider">Liên kết</h4>
-            <ul className="space-y-2.5">
-              <li>
-                <a href="#products" className="text-sm text-[#7A5C4A] hover:text-[#8C3E30] transition-colors font-light">Sản phẩm</a>
-              </li>
-              <li>
-                <a href="#story" className="text-sm text-[#7A5C4A] hover:text-[#8C3E30] transition-colors font-light">Câu chuyện</a>
-              </li>
-              <li>
-                <a href="#workshop" className="text-sm text-[#7A5C4A] hover:text-[#8C3E30] transition-colors font-light">Workshop</a>
-              </li>
-              <li>
-                <a href="#contact" className="text-sm text-[#7A5C4A] hover:text-[#8C3E30] transition-colors font-light">Liên hệ</a>
-              </li>
+            <h4 className="text-xs font-bold text-accent uppercase tracking-wider">Liên kết</h4>
+            <ul className="space-y-3 font-medium">
+              {NAV_LINKS.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    onClick={link.hash ? (e) => handleHashClick(e, link.hash!) : undefined}
+                    className="text-xs text-ink-muted hover:text-accent transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Column 3 - Contact Address */}
+          
           <div className="col-span-1 md:col-span-3 space-y-4">
-            <h4 className="text-xs font-bold text-[#8C3E30] uppercase tracking-wider">Địa chỉ</h4>
-            <ul className="space-y-2.5 text-sm text-[#7A5C4A] font-light leading-relaxed">
+            <h4 className="text-xs font-bold text-accent uppercase tracking-wider">Cửa hàng</h4>
+            <ul className="space-y-3 text-xs text-ink-muted leading-relaxed font-normal">
               <li>
-                123 Đường Sợi Len, Phường Ấm Áp, TP. Hồ Chí Minh
+                123 Đường Sợi Len, Phường Ấm Áp, Quận 1, TP. Hồ Chí Minh
               </li>
               <li>
                 Hotline: 0900 123 456
+              </li>
+              <li>
+                Mở cửa: 9:00 - 21:00 hàng ngày
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Footer Bottom copyright / decoration area */}
-        <div className="pt-8 border-t border-[#F1E3D8] flex flex-col items-center gap-6">
-          {/* Small wool basket icon */}
-          <div className="w-10 h-10 rounded-full bg-[#FAF1EC] border border-[#F1E3D8] flex items-center justify-center text-[#8C3E30]">
+        
+        <div className="pt-8 border-t border-border-custom/50 flex flex-col items-center gap-6">
+          <div className="w-10 h-10 rounded-full bg-surface border border-border-custom flex items-center justify-center text-accent shadow-warm-sm">
             <svg
               className="w-5 h-5"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              strokeWidth={1.8}
+              strokeWidth={1.5}
             >
               <path
                 strokeLinecap="round"
@@ -113,24 +110,25 @@ export default function Footer() {
             </svg>
           </div>
 
-          <p className="text-xs text-[#7A5C4A]/70 font-light text-center">
-            &copy; {new Date().getFullYear()} Len Ấm. Thủ công từ đôi bàn tay ấm.
-          </p>
+          <div className="flex flex-col items-center gap-2">
+            <p className="text-xs text-ink-muted text-center font-normal">
+              &copy; {new Date().getFullYear()} Len Ấm. Thủ công từ đôi bàn tay ấm.
+            </p>
+            <div className="flex gap-4 text-[10px] text-ink-muted/80 font-medium">
+              <a href="#privacy" className="hover:text-accent hover:underline">Chính sách bảo mật</a>
+              <span className="text-border-custom">&bull;</span>
+              <a href="#terms" className="hover:text-accent hover:underline">Điều khoản dịch vụ</a>
+            </div>
+          </div>
 
-          {/* Dynamic Thread Anchor for the final loop at the bottom */}
-          <div 
-            data-yarn-anchor 
-            className="w-10 h-10 -mt-2 pointer-events-none opacity-0" 
-          />
-
-          {/* Infinity Loop Decorative Yarn Graphic */}
-          <div className="text-[#8C3E30]/35 select-none pointer-events-none pt-2">
+          
+          <div className="text-accent/35 pt-2">
             <svg
-              className="w-16 h-8 animate-pulse"
+              className="w-12 h-6 animate-pulse"
               viewBox="0 0 100 50"
               fill="none"
               stroke="currentColor"
-              strokeWidth="2.5"
+              strokeWidth="2"
             >
               <path
                 strokeLinecap="round"
